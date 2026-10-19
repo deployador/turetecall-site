@@ -22,7 +22,7 @@ window.TURETE_CONFIG = {
     // ---------------------------------------------------------------------
     // Quando gravar seu vídeo, basta colocar o ID (ex: "dQw4w9WgXcQ")
     // ou o link completo do YouTube aqui!
-    youtubeVideoId: "",
+    youtubeVideoId: "AovWwujAvjo",
 
     // ---------------------------------------------------------------------
     // 3. INFORMAÇÕES GERAIS

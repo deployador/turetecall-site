@@ -115,6 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentVideoId = extractYouTubeId(config.youtubeVideoId);
 
   // -----------------------------------------------------------------------
+  // 3. PLAYER INLINE NO CARD DA DIREITA (thumbnail ou iframe embutido)
+  // -----------------------------------------------------------------------
+  const inlineEmbed = document.getElementById('inline-video-embed');
+  const centerPlayBtnEl = document.getElementById('center-play-btn');
+  const thumbImg = document.querySelector('.video-thumb-img');
+
+  if (currentVideoId && inlineEmbed) {
+    // Troca a thumbnail estática pela miniatura real do YouTube
+    if (thumbImg) {
+      thumbImg.src = `https://img.youtube.com/vi/${currentVideoId}/maxresdefault.jpg`;
+      thumbImg.alt = 'Miniatura do vídeo tutorial TureteCall';
+    }
+  }
+
+  // -----------------------------------------------------------------------
   // 3. MODAL / LIGHTBOX DE VÍDEO TUTORIAL EM TELA CHEIA
   // -----------------------------------------------------------------------
   const videoModal = document.getElementById('video-modal');
