@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TureteCall - Mais que um chat, é a sua conexão</title>
+  
+  <meta name="description" content="Conecte seus amigos, crie servidores e jogue sem complicação. Simples, rápido e 100% gratuito. Voz, vídeo e compartilhamento ultraleve.">
+  <meta name="theme-color" content="#0388ff">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Canvas de Partículas Dinâmicas Sutis -->
+  <canvas id="ambient-particles"></canvas>
+  
+  <!-- Luz de fundo dinâmica (Glows atmosféricos) -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-center"></div>
+
+  <!-- Cenário Principal (Tela única sem scroll no desktop) -->
+  <main class="hero-stage">
+    
+    <!-- COLUNA DA ESQUERDA: Branding, Copy e Call to Action -->
+    <section class="hero-left">
+      
+      <!-- Topo: Logotipo da TureteCall -->
+      <header class="brand-header">
+        <div class="logo-wrapper">
+          <img src="assets/logo-icon.png" alt="TureteCall Logo" class="brand-logo-img">
+          <span class="brand-name">Turete<span class="brand-name-call">Call</span></span>
+        </div>
+      </header>
+
+      <!-- Headline e Texto de Apresentação -->
+      <div class="hero-content">
+        <!-- Destaque: Compartilhamento de Tela -->
+        <div class="screen-share-badge" title="Transmissão de tela ultraleve com áudio direto">
+          <div class="screen-share-icon-wrap">
+            <svg class="screen-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+              <!-- Ícone de compartilhamento / transmissão -->
+              <path d="M12 7v6"></path>
+              <path d="M9 10l3-3 3 3"></path>
+            </svg>
+            <span class="live-pulse-dot"></span>
+          </div>
+          <span class="screen-share-text">Aqui você pode compartilhar a sua tela</span>
+          <span class="screen-share-tag">60 FPS</span>
+        </div>
+
+        <h1 class="hero-title">
+          Mais que um chat,<br>
+          <span class="title-highlight">é a sua conexão.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Conecte seus amigos, crie servidores e jogue sem complicação. Simples, rápido e <span class="badge-free">100% gratuito</span>.
+        </p>
+
+        <!-- Botões de Ação -->
+        <div class="cta-actions">
+          <a href="https://github.com/deployador/turetecall/releases/download/v230/TureteCall-v230.exe" id="btn-download" download="TureteCall-v230.exe" class="btn btn-primary" title="Baixar TureteCall para Windows">
+            <span class="btn-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </span>
+            <span class="btn-text">Baixar Gratuitamente</span>
+            <span class="btn-arrow">&rarr;</span>
+            <div class="btn-glow-pulse"></div>
+          </a>
+
+          <button type="button" id="btn-tutorial" class="btn btn-glass" title="Assistir ao vídeo tutorial">
+            <span class="play-circle-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </span>
+            <span class="btn-text">Ver Tutorial</span>
+          </button>
+        </div>
+
+        <!-- Card de Informações Técnicas P2P, GitHub e Android -->
+        <div class="info-card glass-panel">
+          
+          <!-- Lado Host P2P -->
+          <div class="info-item">
+            <div class="info-icon host-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="info-text">
+              <h3 class="info-title">Uma pessoa precisa ser o host.</h3>
+              <p class="info-desc">A conexão é direta entre os computadores, sem servidores hospedados por nós.</p>
+            </div>
+          </div>
+
+          <!-- Linha Divisória 1 -->
+          <div class="info-divider"></div>
+
+          <!-- Lado GitHub: Compactação, Criptografia, Upload e Download com 1 Clique -->
+          <div class="info-item">
+            <div class="info-icon github-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+              </svg>
+            </div>
+            <div class="info-text">
+              <h3 class="info-title">Compactação & Criptografia</h3>
+              <p class="info-desc">Compactação, criptografia, upload e download pelo GitHub de forma automática, rápida e com um clique. Você envia, a pessoa <strong class="word-highlight">baixa</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Linha Divisória 2 -->
+          <div class="info-divider"></div>
+
+          <!-- Lado Android Web -->
+          <div class="info-item">
+            <div class="info-icon device-icon">
+              <svg class="icon-desktop" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <svg class="icon-mobile" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <div class="info-text">
+              <h3 class="info-title">Também no <span class="brand-android">Android</span></h3>
+              <p class="info-desc">Compartilhe o link para o seu usuário Android. Acesse pelo navegador, sem complicação.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- COLUNA DA DIREITA: Mockups com Efeito Parallax 3D & Tilt -->
+    <section class="hero-right">
+      <div class="tilt-wrapper" id="tilt-wrapper">
+
+        <!-- PAINEL 1: Janela Desktop do TureteCall -->
+        <article class="app-mockup-card glass-panel" id="app-window">
+          
+          <!-- Barra Superior da Janela -->
+          <div class="mockup-header">
+            <div class="window-left-brand">
+              <img src="assets/logo-icon.png" alt="" class="win-logo-mini">
+              <span class="win-title">Turete<span class="call-cyan">Call</span></span>
+            </div>
+            <div class="window-right-actions">
+              <div class="icon-action-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="icon-action-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </div>
+              <div class="win-control win-min">&minus;</div>
+              <div class="win-control win-max">&#9633;</div>
+              <div class="win-control win-close">&times;</div>
+            </div>
+          </div>
+
+          <!-- Corpo do App -->
+          <div class="app-body-grid">
+            
+            <!-- Barra Lateral do App -->
+            <nav class="app-nav-sidebar">
+              <div class="nav-btn active" title="Início">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                </svg>
+                <span>Início</span>
+              </div>
+              <div class="nav-btn" title="Servidores">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+                <span>Servidores</span>
+              </div>
+              <div class="nav-btn" title="Configurações">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Configurações</span>
+              </div>
+            </nav>
+
+            <!-- Área Central de Chat e Mensagens -->
+            <section class="app-chat-column">
+              <!-- Barra de Busca -->
+              <div class="chat-search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span class="search-text">Buscar...</span>
+                <span class="search-icon-right">&#x21C5;</span>
+              </div>
+
+              <!-- Lista de Mensagens -->
+              <div class="chat-stream">
+                
+                <div class="chat-msg">
+                  <div class="user-avatar avatar-purple">E</div>
+                  <div class="msg-content">
+                    <div class="msg-meta">
+                      <span class="user-name">Usuário_e8f</span>
+                      <span class="msg-time">12:34</span>
+                    </div>
+                    <div class="msg-body">teste</div>
+                  </div>
+                </div>
+
+                <div class="chat-msg">
+                  <div class="user-avatar avatar-cyan">P</div>
+                  <div class="msg-content">
+                    <div class="msg-meta">
+                      <span class="user-name">PCHOST</span>
+                      <span class="msg-time">12:21</span>
+                    </div>
+                    <div class="msg-body">Jogo legal completo</div>
+                    
+                    <!-- Anexo de Arquivo P2P -->
+                    <div class="file-attachment-card">
+                      <div class="file-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                          <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                      </div>
+                      <div class="file-info">
+                        <span class="file-name">Download do arquivo legal</span>
+                        <span class="file-size">87,8 GB</span>
+                      </div>
+                      <div class="file-download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="chat-msg">
+                  <div class="user-avatar avatar-blue">B</div>
+                  <div class="msg-content">
+                    <div class="msg-meta">
+                      <span class="user-name">BLOOD</span>
+                      <span class="msg-time">22:26</span>
+                    </div>
+                    <div class="msg-body">ESPN</div>
+                  </div>
+                </div>
+
+                <div class="chat-msg">
+                  <div class="user-avatar avatar-pink">U</div>
+                  <div class="msg-content">
+                    <div class="msg-meta">
+                      <span class="user-name">Usuário_v6b</span>
+                      <span class="msg-time">22:12</span>
+                    </div>
+                    <div class="msg-body">Filmes</div>
+                  </div>
+                </div>
+
+                <div class="chat-msg">
+                  <div class="user-avatar avatar-orange">P</div>
+                  <div class="msg-content">
+                    <div class="msg-meta">
+                      <span class="user-name">PCHOST</span>
+                      <span class="msg-time">18:03</span>
+                    </div>
+                    <div class="msg-body tag-game">Enshrouded</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Input de Envio de Mensagem -->
+              <div class="chat-input-row">
+                <span class="input-placeholder">Mensagem para #geral...</span>
+                <div class="input-icons">
+                  <span class="input-btn" title="Microfone">&#127908;</span>
+                  <span class="input-btn" title="Emoji">&#128522;</span>
+                  <span class="input-btn" title="Enviar">&#10148;</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Painel Lateral Direito: Usuários Online -->
+            <aside class="app-users-panel">
+              <div class="users-section-title">Sala Principal</div>
+              
+              <ul class="users-list">
+                <li class="user-item">
+                  <div class="user-pic avatar-player1">
+                    <span class="status-indicator online"></span>
+                  </div>
+                  <div class="user-details">
+                    <span class="u-name">Player01</span>
+                    <span class="u-status">Online</span>
+                  </div>
+                  <div class="user-mic-icon mic-active" title="Microfone ativo (Transmitindo voz)">
+                    <span class="mic-wave"></span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                      <line x1="12" y1="19" x2="12" y2="23"></line>
+                      <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
+                  </div>
+                </li>
+
+                <li class="user-item">
+                  <div class="user-pic avatar-player2">
+                    <span class="status-indicator online"></span>
+                  </div>
+                  <div class="user-details">
+                    <span class="u-name">JogadorBR</span>
+                    <span class="u-status">Online</span>
+                  </div>
+                  <div class="user-mic-icon" title="Microfone conectado">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    </svg>
+                  </div>
+                </li>
+
+                <li class="user-item">
+                  <div class="user-pic avatar-player3">
+                    <span class="status-indicator online"></span>
+                  </div>
+                  <div class="user-details">
+                    <span class="u-name">NightFox</span>
+                    <span class="u-status">Online</span>
+                  </div>
+                  <div class="user-mic-icon" title="Microfone conectado">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    </svg>
+                  </div>
+                </li>
+
+                <li class="user-item">
+                  <div class="user-pic avatar-player4">
+                    <span class="status-indicator online"></span>
+                  </div>
+                  <div class="user-details">
+                    <span class="u-name">Luna</span>
+                    <span class="u-status">Online</span>
+                  </div>
+                  <div class="user-mic-icon" title="Microfone conectado">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    </svg>
+                  </div>
+                </li>
+              </ul>
+            </aside>
+
+          </div>
+        </article>
+
+        <!-- PAINEL 2: Janela / Player de Vídeo -->
+        <article class="video-mockup-card glass-panel" id="video-window">
+          
+          <!-- Topo do Player de Vídeo -->
+          <div class="video-window-header">
+            <div class="video-title-wrap">
+              <span class="video-play-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </span>
+              <span class="video-title-text">Assista ao vídeo</span>
+            </div>
+          </div>
+
+          <!-- Área do Player / Thumbnail com Botão Play -->
+          <div class="video-screen" id="video-screen">
+            <img src="assets/video-thumb.jpg" alt="Prévia do vídeo tutorial TureteCall" class="video-thumb-img">
+            
+            <!-- Botão Gigante de Play Pulsante -->
+            <button type="button" class="center-play-button" id="center-play-btn" aria-label="Reproduzir vídeo">
+              <span class="play-pulse-ring"></span>
+              <span class="play-pulse-ring delay"></span>
+              <span class="play-btn-circle">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                </svg>
+              </span>
+            </button>
+
+            <!-- Container para Iframe do YouTube caso embutido direto -->
+            <div class="inline-video-embed" id="inline-video-embed"></div>
+          </div>
+
+          <!-- Barra de Controles do Vídeo -->
+          <div class="video-control-bar">
+            <button type="button" class="v-ctrl-btn" id="ctrl-play-pause" title="Play / Pause">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+
+            <span class="v-time-display" id="v-time">0:00 / 2:34</span>
+
+            <div class="v-progress-track">
+              <div class="v-progress-fill" style="width: 25%;"></div>
+              <div class="v-progress-handle" style="left: 25%;"></div>
+            </div>
+
+            <button type="button" class="v-ctrl-btn" title="Volume">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </button>
+
+            <button type="button" class="v-ctrl-btn" title="Configurações de reprodução">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </button>
+
+            <button type="button" class="v-ctrl-btn" id="ctrl-fullscreen" title="Expandir vídeo em tela cheia">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+              </svg>
+            </button>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL / LIGHTBOX DE VÍDEO TUTORIAL EM TELA CHEIA -->
+  <div class="video-modal-backdrop" id="video-modal" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <img src="assets/logo-icon.png" alt="" class="modal-mini-logo">
+          <span>Tutorial Oficial &bull; TureteCall</span>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Fechar vídeo (ESC)">
+          <span>&times;</span>
+          <span class="esc-badge">ESC</span>
+        </button>
+      </div>
+      
+      <!-- Container 16:9 responsivo -->
+      <div class="modal-video-wrapper">
+        <div id="modal-player-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
