@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const releasesApiUrl = `https://api.github.com/repos/${repoUser}/${repoName}/releases/latest`;
   const fallbackReleasesUrl = `https://github.com/${repoUser}/${repoName}/releases`;
 
-  let latestFileName = 'TureteCall-v251.exe';
+  let latestFileName = 'TureteCall-v252.exe';
 
   // Função para buscar o executável mais recente na API do GitHub
   async function fetchLatestRelease() {
