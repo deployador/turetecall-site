@@ -28,5 +28,5 @@ window.TURETE_CONFIG = {
     // 3. INFORMAÇÕES GERAIS
     // ---------------------------------------------------------------------
     appName: "TureteCall",
-    versionTag: "v260"
+    versionTag: "v261"
 };
